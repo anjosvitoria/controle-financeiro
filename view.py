@@ -93,7 +93,7 @@ def criar_grafico_por_conta():
         plt.show()
            
             
-criar_grafico_por_conta()
+#criar_grafico_por_conta()
 #x =buscar_historico_entre_datas(date.today() - timedelta(days=1), date.today() + timedelta(days=1))
 #print(x)
 
