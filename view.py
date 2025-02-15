@@ -59,12 +59,22 @@ def movimentar_dinheiro(historico: Historico):
         session.add(historico)
         session.commit()
         return historico
+
+def total_contas():
+    with Session(engine) as session:
+        statement = select(Conta)
+        contas = session.exec(statement).all()
     
-
-
+    total = 0 
+    for conta in contas:
+        total += conta.valor
+    return float(total)
+        
+        
 #conta = Conta(valor=10, banco=Bancos.NUBANK)
 #criar_conta(conta)
 #desativar_conta(1)
 #transferir_saldo(2, 3, 1)
-historico = Historico(conta_id=1, tipos=Tipos.ENTRADA,valor=10, data= date.today())
-movimentar_dinheiro(historico)
+#historico = Historico(conta_id=1, tipos=Tipos.ENTRADA,valor=10, data= date.today())
+#movimentar_dinheiro(historico)
+print(total_contas())
